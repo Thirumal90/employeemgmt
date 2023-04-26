@@ -7,15 +7,15 @@ public class Employee {
 	private String empType;
 	private Double empPrecent;
 	private Double vacations;
+	private Double totalVacation;
 	
 	Employee(){}
 	
-	public Employee(Integer empId, String name, String empType, Double empPrecent, Double vacations){
+	public Employee(Integer empId, String name, String empType, Double empPrecent){
 		this.empId = empId;
 		this.name = name;
 		this.empType = empType;
 		this.empPrecent = empPrecent;
-		this.vacations = vacations;
 	}
 
 	public Integer getEmpId() {
@@ -56,6 +56,14 @@ public class Employee {
 
 	public void setVacations(Double vacations) {
 		this.vacations = vacations;
+	}
+
+	public Double getTotalVacation() {
+		return totalVacation;
+	}
+
+	public void setTotalVacation(Double totalVacation) {
+		this.totalVacation = totalVacation;
 	}
 	
 }

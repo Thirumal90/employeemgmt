@@ -36,7 +36,7 @@ public class EmployeeController {
 	
 	@GetMapping("/take-vacation/{empId}")
 	public ResponseEntity<Object> takeVacation(@PathVariable Integer empId){
-		String vacationDays = employeService.takeVacation(empId);
-		return ResponseEntity.status(HttpStatus.OK).body(vacationDays);
+		Employee employee = employeService.takeVacation(empId);
+		return ResponseEntity.status(HttpStatus.OK).body(employee);
 	}
 }

@@ -20,23 +20,22 @@ public class EmployeService {
 	public Employee getWork(Integer empId) {
 		Employee employee = empList.stream().filter(x -> x.getEmpId() == empId).findFirst()
                 .orElse(null);
+		employee.setVacations(260 - employee.getEmpPrecent());
+		if(employee.getEmpType().equals("H")) {
+			employee.setTotalVacation(10.0);
+		} else if(employee.getEmpType().equals("M")) {
+			employee.setTotalVacation(30.0);
+		} else if(employee.getEmpType().equals("S")) {
+			employee.setTotalVacation(15.0);
+		}
+		
 		return employee;
 	}
 
-	public String takeVacation(Integer empId) {
+	public Employee takeVacation(Integer empId) {
 		Double vacationDays = 0.0;
 		Employee employee = empList.stream().filter(x -> x.getEmpId() == empId).findFirst()
                 .orElse(null);
-		
-		if(employee.getEmpType().equals("H")) {
-			vacationDays = 10 - employee.getVacations(); 
-		} else if(employee.getEmpType().equals("M")) {
-			vacationDays = 30 - employee.getVacations();
-		} else if(employee.getEmpType().equals("S")) {
-			vacationDays = 15 - employee.getVacations();
-		}
-		
-	return "Vacation Taken : "+vacationDays;
+	return employee;
 }
-	
 }
